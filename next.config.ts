@@ -5,6 +5,12 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 })
 
+/** @type {import('next').NextConfig} */
 module.exports = withPWA({
   reactStrictMode: true,
+
+  // 👇 IMPORTANT: disable turbopack
+  experimental: {
+    turbo: false,
+  },
 })
