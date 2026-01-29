@@ -1,15 +1,35 @@
+// const withPWA = require('next-pwa')({
+//   dest: 'public',
+//   register: true,
+//   skipWaiting: true,
+//   disable: process.env.NODE_ENV === 'development',
+// })
+
+// /** @type {import('next').NextConfig} */
+// module.exports = withPWA({
+//   reactStrictMode: true,
+
+//   // 👇 IMPORTANT: disable turbopack
+//   experimental: {
+//     turbo: false,
+//   },
+// })
+
+
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
+
+  fallbacks: {
+    document: '/offline',
+  },
 })
 
-/** @type {import('next').NextConfig} */
 module.exports = withPWA({
   reactStrictMode: true,
-
-  // 👇 IMPORTANT: disable turbopack
   experimental: {
     turbo: false,
   },
